@@ -6,4 +6,6 @@
     <string name="Welcome">WELCOME</string>
     <string name="Username">Username</string>
     <string name="Password">Password</string>
+    <string name="Login">LOGIN</string>
+    <string name="Registration">REGISTER</string>
 </resources>

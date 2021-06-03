@@ -2,6 +2,7 @@ package com.example.mobileproject;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -38,6 +39,8 @@ public class MainActivity extends AppCompatActivity {
                     // provjera passworda
                     if(password.getText().toString().equals(correct_password)) {
                         Toast.makeText(MainActivity.this, "Logged in successfully",Toast.LENGTH_LONG).show();
+                        Intent intent = new Intent(MainActivity.this, MainPageActivity.class);
+                        MainActivity.this.startActivity(intent);
                     }
 
                 } else {
