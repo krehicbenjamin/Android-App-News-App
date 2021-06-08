@@ -45,7 +45,7 @@ public class MainPageActivity extends AppCompatActivity {
 
             }
         });
-        listView = findViewById(R.id.list_view_container);
+
     }
 
     private void setUpAdapter(ViewPager viewPager ){
