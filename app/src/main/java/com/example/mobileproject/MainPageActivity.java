@@ -13,10 +13,14 @@ import android.widget.ListView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class MainPageActivity extends AppCompatActivity {
-    private ListView listView;
+
     private BottomNavigationView bottomNavigationView;
     private ViewPager viewPager;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,6 +45,7 @@ public class MainPageActivity extends AppCompatActivity {
 
             }
         });
+        listView = findViewById(R.id.list_view_container);
     }
 
     private void setUpAdapter(ViewPager viewPager ){
@@ -74,4 +79,6 @@ public class MainPageActivity extends AppCompatActivity {
             }
         }
     };
+
+
 }

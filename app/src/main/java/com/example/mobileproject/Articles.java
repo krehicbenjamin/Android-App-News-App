@@ -1,18 +1,19 @@
 package com.example.mobileproject;
 
+import android.media.Image;
+
 public class Articles {
     private long id;
     private String title;
     private String body;
+
 
     public Articles(String title, String body) {
         this.title = title;
         this.body = body;
     }
 
-    public long getId() {
-        return id;
-    }
+    public long getId() { return id; }
 
     public void setId(long id) {
         this.id = id;
@@ -33,4 +34,5 @@ public class Articles {
     public void setBody(String body) {
         this.body = body;
     }
+
 }
