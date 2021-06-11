@@ -11,6 +11,8 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity {
     EditText username, password;
     Button btnLogin;
@@ -32,22 +34,43 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                // provjera unosa
+                int count;
 
+                // provjera unosa
                 if(TextUtils.isEmpty(username.getText().toString()) || TextUtils.isEmpty(password.getText().toString())) {
                     Toast.makeText(MainActivity.this, "Invalid input",Toast.LENGTH_LONG).show();
-                } else if (username.getText().toString().equals(correct_username)) {
+                } else {
+                    GolazoDatabase golazoDatabase = GolazoDatabase.getInstance(getApplicationContext());
+                    count = golazoDatabase.userDao().checkCredentials(username.getText().toString(), password.getText().toString());
                     // provjera passworda
-                    if(password.getText().toString().equals(correct_password)) {
+                    if(count == 1) {
                         Toast.makeText(MainActivity.this, "Logged in successfully",Toast.LENGTH_LONG).show();
                         Intent intent = new Intent(MainActivity.this, MainPageActivity.class);
                         MainActivity.this.startActivity(intent);
+                    } else {
+                        Toast.makeText(MainActivity.this, "Invalid Username or Password",Toast.LENGTH_LONG).show();
                     }
 
-                } else {
-                    Toast.makeText(MainActivity.this, "Invalid Username or Password",Toast.LENGTH_LONG).show();
                 }
             }
         });
+    }
+
+    public void  onRegisterClick (View view) {
+        User user = new User(username.getText().toString(), password.getText().toString());
+
+        if (TextUtils.isEmpty(username.getText().toString()) || TextUtils.isEmpty(password.getText().toString())) {
+            Toast.makeText(MainActivity.this, "Invalid input", Toast.LENGTH_LONG).show();
+        } else {
+            GolazoDatabase golazoDatabase = GolazoDatabase.getInstance(getApplicationContext());
+            List<User> userList = golazoDatabase.userDao().checkUsernameUnique(username.getText().toString());
+            if (userList.get(0) == null) {
+                golazoDatabase.userDao().makeNewUser(user);
+                Intent intent = new Intent(MainActivity.this, MainPageActivity.class);
+                startActivity(intent);
+            } else {
+                Toast.makeText(MainActivity.this, "Username not unique", Toast.LENGTH_LONG).show();
+            }
+        }
     }
 }
