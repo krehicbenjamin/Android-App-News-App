@@ -11,7 +11,7 @@ import androidx.room.RoomDatabase;
 public abstract class GolazoDatabase extends RoomDatabase {
     private static GolazoDatabase database;
     public abstract UserDao userDao();
-
+    public abstract ArticleDao articleDao();
     public static GolazoDatabase getInstance (Context context) {
         if (database == null) {
             database = Room.databaseBuilder(context, GolazoDatabase.class, "golanzoDatabase").allowMainThreadQueries().build();

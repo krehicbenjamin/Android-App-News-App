@@ -1,5 +1,6 @@
 package com.example.mobileproject;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,25 +16,31 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class HomeFragment extends Fragment{
+    public static final String ARTICLE_EXTRA_ID = "extra_id";
     private ListView listView;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
         listView = view.findViewById(R.id.list_view_container);
+        listView.setOnItemClickListener((new AdapterView.OnItemClickListener(){
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                long articleId = parent.getItemIdAtPosition(position);
+                Intent intent = new Intent (getActivity(), ArticleViewActivity.class);
+                intent.putExtra(ARTICLE_EXTRA_ID,articleId);
+                startActivity(intent);
+            }
+        }));
         return view;
     }
+
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        List<Articles> articles  = new ArrayList<>();
+        List<Articles> articles  = GolazoDatabase.getInstance(getActivity()).articleDao().getAll();
         ArticleListAdapter adapter = new ArticleListAdapter(getActivity(), articles);
-        articles.add(new Articles("title 1", "body"));
-        articles.add(new Articles("title 1", "body"));
-        articles.add(new Articles("title 1", "body"));
-        articles.add(new Articles("title 1", "body"));
-
         listView.setAdapter(adapter);
     }
 

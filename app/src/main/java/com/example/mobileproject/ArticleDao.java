@@ -10,9 +10,11 @@ import java.util.List;
 public interface ArticleDao {
 
     @Insert
-    void makeNewArticle (Articles article);
+    void add(Articles article);
 
     @Query("SELECT * FROM articles")
-    List<Articles> getAllArticles ();
+    List<Articles> getAll();
 
+    @Query("SELECT * FROM articles WHERE id = :id LIMIT 1")
+    Articles getArticleById(long id);
 }

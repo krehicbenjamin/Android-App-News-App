@@ -6,9 +6,12 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -17,7 +20,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainPageActivity extends AppCompatActivity {
-
+    public static final String ARTICLE_EXTRA_ID = "extraid";
+    private ListView listView;
     private BottomNavigationView bottomNavigationView;
     private ViewPager viewPager;
 
@@ -45,6 +49,7 @@ public class MainPageActivity extends AppCompatActivity {
 
             }
         });
+
 
     }
 
