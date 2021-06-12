@@ -43,8 +43,8 @@ public class ArticleListAdapter extends BaseAdapter {
         Articles articles = articlesList.get(position);
         TextView articleTitile = convertView.findViewById(R.id.article_title);
         articleTitile.setText(articles.getTitle());
-        TextView articleBody = convertView.findViewById(R.id.article_body);
-        articleBody.setText(articles.getBody());
+       // TextView articleBody = convertView.findViewById(R.id.article_body);
+        //articleBody.setText(articles.getBody());
         return convertView;
     }
 }

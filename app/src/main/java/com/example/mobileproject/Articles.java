@@ -2,8 +2,15 @@ package com.example.mobileproject;
 
 import android.media.Image;
 
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
+@Entity(tableName = "articles")
 public class Articles {
+
+    @PrimaryKey
     private long id;
+
     private String title;
     private String body;
 
