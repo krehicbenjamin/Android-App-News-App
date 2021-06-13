@@ -90,12 +90,12 @@ public class MainPageActivity extends AppCompatActivity {
             }
         }
     };
-
+/*
     public void onAdd(View view){
         Articles article = new Articles(title.getText().toString(),body.getText().toString());
         GolazoDatabase.getInstance(this).articleDao().add(article);
         Toast.makeText(this, "Succesfully added a new article", Toast.LENGTH_LONG).show();
     }
-
+*/
 
 }
