@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void  onRegisterClick (View view) {
 
-                Intent intent = new Intent(MainActivity.this, MainPageActivity.class);
+                Intent intent = new Intent(MainActivity.this, RegisterActivity.class);
                 startActivity(intent);
 
     }
