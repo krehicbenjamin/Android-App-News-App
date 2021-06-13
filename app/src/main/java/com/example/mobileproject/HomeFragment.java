@@ -23,15 +23,6 @@ public class HomeFragment extends Fragment{
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
         listView = view.findViewById(R.id.list_view_container);
-        listView.setOnItemClickListener((new AdapterView.OnItemClickListener(){
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                long articleId = parent.getItemIdAtPosition(position);
-                Intent intent = new Intent (getActivity(), ArticleViewActivity.class);
-                intent.putExtra(ARTICLE_EXTRA_ID,articleId);
-                startActivity(intent);
-            }
-        }));
         return view;
     }
 
@@ -42,6 +33,15 @@ public class HomeFragment extends Fragment{
         List<Articles> articles  = GolazoDatabase.getInstance(getActivity()).articleDao().getAll();
         ArticleListAdapter adapter = new ArticleListAdapter(getActivity(), articles);
         listView.setAdapter(adapter);
+        listView.setOnItemClickListener((new AdapterView.OnItemClickListener(){
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                long articleId = parent.getItemIdAtPosition(position);
+                Intent intent = new Intent (getActivity(), ArticleViewActivity.class);
+                intent.putExtra(ARTICLE_EXTRA_ID,articleId);
+                startActivity(intent);
+            }
+        }));
     }
 
 
