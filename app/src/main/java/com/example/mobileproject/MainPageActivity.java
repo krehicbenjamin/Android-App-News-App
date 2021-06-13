@@ -63,7 +63,7 @@ public class MainPageActivity extends AppCompatActivity {
         ViewPageAdapter viewPageAdapter = new ViewPageAdapter(getSupportFragmentManager(), FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT );
         viewPageAdapter.addFragment(new HomeFragment());
         viewPageAdapter.addFragment(new AdminFragment());
-        viewPageAdapter.addFragment(new ProfileFragment());
+       // viewPageAdapter.addFragment(new ProfileFragment());
 
         viewPager.setAdapter(viewPageAdapter);
 
@@ -82,9 +82,11 @@ public class MainPageActivity extends AppCompatActivity {
                     viewPager.setCurrentItem(1);
                     return true;
 
-                case R.id.nav_profile:
+               /* case R.id.nav_profile:
                     viewPager.setCurrentItem(2);
                     return true;
+
+                */
                 default:
                     return false;
             }
