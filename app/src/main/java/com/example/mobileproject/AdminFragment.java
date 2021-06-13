@@ -24,9 +24,4 @@ public class AdminFragment extends Fragment {
         return view;
     }
 
-    public void onAdd(View view){
-        Articles article = new Articles(title.getText().toString(),body.getText().toString());
-        GolazoDatabase.getInstance(getActivity()).articleDao().add(article);
-        Toast.makeText(getActivity(), "Succesfully added a new article", Toast.LENGTH_LONG).show();
-    }
 }

@@ -35,6 +35,9 @@ public class MainPageActivity extends AppCompatActivity {
         bottomNavigationView = findViewById(R.id.bottom_navigation_bar);
         bottomNavigationView.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener );
         viewPager = findViewById(R.id.fragment_container);
+        title = findViewById(R.id.title_add);
+        body = findViewById(R.id.body_add);
+
         setUpAdapter(viewPager);
         viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
@@ -88,6 +91,11 @@ public class MainPageActivity extends AppCompatActivity {
         }
     };
 
+    public void onAdd(View view){
+        Articles article = new Articles(title.getText().toString(),body.getText().toString());
+        GolazoDatabase.getInstance(this).articleDao().add(article);
+        Toast.makeText(this, "Succesfully added a new article", Toast.LENGTH_LONG).show();
+    }
 
 
 }
