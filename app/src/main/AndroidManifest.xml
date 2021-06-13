@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MobileProject">
-        <activity android:name=".ArticleViewActivity" android:parentActivityName=".MainPageActivity"/>
+        <activity android:name=".ArticleViewActivity" />
         <activity android:name=".MainPageActivity" />
         <activity android:name=".RegisterActivity" />
         <activity android:name=".MainActivity">
