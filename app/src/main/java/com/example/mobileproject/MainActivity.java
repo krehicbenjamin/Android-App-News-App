@@ -8,10 +8,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ListView;
 import android.widget.Toast;
-
-import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     EditText username, password;
@@ -26,8 +23,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-        username = findViewById(R.id.username);
-        password = findViewById(R.id.password);
+        username = findViewById(R.id.reg_username);
+        password = findViewById(R.id.reg_password);
         btnLogin = findViewById(R.id.button);
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
