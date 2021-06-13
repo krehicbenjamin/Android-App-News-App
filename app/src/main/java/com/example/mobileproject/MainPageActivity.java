@@ -12,7 +12,9 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -21,6 +23,7 @@ import java.util.List;
 
 public class MainPageActivity extends AppCompatActivity {
     public static final String ARTICLE_EXTRA_ID = "extraid";
+    private EditText title, body;
     private ListView listView;
     private BottomNavigationView bottomNavigationView;
     private ViewPager viewPager;
@@ -84,6 +87,7 @@ public class MainPageActivity extends AppCompatActivity {
             }
         }
     };
+
 
 
 }

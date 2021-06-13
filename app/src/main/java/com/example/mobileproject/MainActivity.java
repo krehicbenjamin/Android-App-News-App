@@ -57,20 +57,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void  onRegisterClick (View view) {
-        User user = new User(username.getText().toString(), password.getText().toString());
 
-        if (TextUtils.isEmpty(username.getText().toString()) || TextUtils.isEmpty(password.getText().toString())) {
-            Toast.makeText(MainActivity.this, "Invalid input", Toast.LENGTH_LONG).show();
-        } else {
-            GolazoDatabase golazoDatabase = GolazoDatabase.getInstance(getApplicationContext());
-            List<User> userList = golazoDatabase.userDao().checkUsernameUnique(username.getText().toString());
-            if (userList.get(0) == null) {
-                golazoDatabase.userDao().makeNewUser(user);
                 Intent intent = new Intent(MainActivity.this, MainPageActivity.class);
                 startActivity(intent);
-            } else {
-                Toast.makeText(MainActivity.this, "Username not unique", Toast.LENGTH_LONG).show();
-            }
-        }
+
     }
 }
